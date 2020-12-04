@@ -1,12 +1,23 @@
 import qte5;
 import core.runtime;
+import std.stdio;
+
+void test() {
+	writeln("clicked");
+}
 
 int main(string[] args) {
 	if (LoadQt(dll.QtE5Widgets, true)) return 1;
-	QApplication app = new QApplication(&Runtime.cArgs.argc, Runtime.cArgs.argv, 1);
-	QMainWindow window = new QMainWindow(null);
+
+	auto app = new QApplication(&Runtime.cArgs.argc, Runtime.cArgs.argv, 1);
+	auto window = new QMainWindow(null);
+
+	auto button = new QPushButton("Hello &World", window);
+	auto act = new QAction(window, &test, window.aThis);
+	window.connects(button, "clicked()", act, "Slot()");
 	
-	window.resize(100, 20);
+	window.resize(100, 30);
 	window.show();
+
 	return app.exec();
 }
