@@ -8,8 +8,7 @@ a.out: $(objects)
 #	gdc -fsyntax-only -fintfc $^ -o /dev/null
 
 #main.o: main.d qte5.di
-main.o: main.d
-	gdc -c main.d -o $@
+#	gdc -c main.d -o $@
 
 %.o: %.d
 	gdc -c $^ -o $@
