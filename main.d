@@ -1,12 +1,14 @@
 import qte5;
 import core.runtime;
 import std.stdio;
+import derelict.lua.lua;
 
 void test() {
 	writeln("clicked");
 }
 
 int main(string[] args) {
+	DerelictLua.load();
 	if (LoadQt(dll.QtE5Widgets, true)) return 1;
 
 	auto app = new QApplication(&Runtime.cArgs.argc, Runtime.cArgs.argv, 1);
