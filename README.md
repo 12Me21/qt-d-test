@@ -4,7 +4,8 @@ includes files from qt5e (https://github.com/MGWL/QtE5)
 
 ## Libraries needed:
 - qt version 5.7 or newer
-- liblua5.3
+- liblua5.3  
+apt packages: `qt5-default` and `liblua5.3`
 
 ## Instructions:
 - `make depends`: download source code dependencies
