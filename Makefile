@@ -4,7 +4,7 @@ a.out: $(objects)
 	gdc $^ -o $@
 
 run: a.out liblua.so.5.3 libQtE5Widgets64.so
-	LD_LIBRARY_PATH=`pwd` ./a.out
+	@LD_LIBRARY_PATH=`pwd` ./a.out
 
 #doesn't work because of mixins
 %.di: %.d
@@ -33,6 +33,7 @@ depends:
 	ln -s DerelictUtil/source/derelict/util/ derelict/util
 	git clone https://github.com/DerelictOrg/DerelictLua derelict/DerelictLua --depth=1
 	ln -s DerelictLua/source/derelict/lua/ derelict/lua
+#git clone https://github.com/MGWL/QtE5 --depth=1
 
 # idiots used the wrong name for the shared library
 # it's liblua5.3.so, not liblua.so.5.3
